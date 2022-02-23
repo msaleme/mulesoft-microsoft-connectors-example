@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:azure-service-bus-messaging="http://www.mulesoft.org/schema/mule/azure-service-bus-messaging" xmlns:microsoftTeams="http://www.mulesoft.org/schema/mule/microsoftTeams"
+	xmlns:microsoftOneDrive="http://www.mulesoft.org/schema/mule/microsoftOneDrive"
+	xmlns:dynamics="http://www.mulesoft.org/schema/mule/dynamics" xmlns:azure-storage="http://www.mulesoft.org/schema/mule/azure-storage" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/azure-storage http://www.mulesoft.org/schema/mule/azure-storage/current/mule-azure-storage.xsd
+http://www.mulesoft.org/schema/mule/dynamics http://www.mulesoft.org/schema/mule/dynamics/current/mule-dynamics.xsd
+http://www.mulesoft.org/schema/mule/microsoftOneDrive http://www.mulesoft.org/schema/mule/microsoftOneDrive/current/mule-microsoftOneDrive.xsd
+http://www.mulesoft.org/schema/mule/microsoftTeams http://www.mulesoft.org/schema/mule/microsoftTeams/current/mule-microsoftTeams.xsd
+http://www.mulesoft.org/schema/mule/azure-service-bus-messaging http://www.mulesoft.org/schema/mule/azure-service-bus-messaging/current/mule-azure-service-bus-messaging.xsd">
+	<flow name="mulesoft-microsoft-connectors-exampleFlow" doc:id="deae3362-228c-4b3f-9083-0140573c2b82" >
+		<azure-storage:list-blobs-in-container doc:name="List blobs in container" doc:id="1d480df9-035f-43eb-8cdf-e5e5e28e1d67" />
+	</flow>
+	<flow name="mulesoft-microsoft-connectors-exampleFlow5" doc:id="4895655f-f4fa-44d3-81fa-ff3c63680850" >
+		<azure-service-bus-messaging:message-listener doc:name="Message listener" doc:id="42501580-aba7-4471-b7d9-6c7f7d4bc2ed" />
+		<azure-service-bus-messaging:send doc:name="Send" doc:id="3b5060a2-fcd8-4486-a909-7d84b2573206" />
+	</flow>
+	<flow name="mulesoft-microsoft-connectors-exampleFlow1" doc:id="884007ca-ce60-42fc-952b-57d6601b606a" >
+		<dynamics:on-new-object doc:name="On new object" doc:id="ae410785-1955-439f-b5cb-4ccdd1e0e817" >
+			<scheduling-strategy >
+				<fixed-frequency />
+			</scheduling-strategy>
+		</dynamics:on-new-object>
+	</flow>
+	<flow name="mulesoft-microsoft-connectors-exampleFlow2" doc:id="e5f1240b-494e-4d57-ac5a-4b60ec45b482" >
+		<microsoftOneDrive:get-drive-item-by-path doc:name="Get drive item by path" doc:id="680c144f-45ab-48cc-a3de-a7ac23d5a48a" />
+	</flow>
+	<flow name="mulesoft-microsoft-connectors-exampleFlow3" doc:id="80f1c785-b7d3-48b0-a518-0d0e7ac70b6a" >
+		<microsoftTeams:list-channels doc:name="List channels" doc:id="18ac5d58-63cc-4ed1-ba1f-85a04d5e6a0e" />
+	</flow>
+	<flow name="mulesoft-microsoft-connectors-exampleFlow4" doc:id="81b6cbd0-254e-4b49-9eef-16ea0ca728d4" >
+		<microsoftTeams:update-channel doc:name="Update channel" doc:id="92ae6949-1b1f-4fa8-af51-5697ecb24144" />
+	</flow>
+</mule>
